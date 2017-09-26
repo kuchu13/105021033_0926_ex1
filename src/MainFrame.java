@@ -8,7 +8,7 @@ import java.awt.event.WindowEvent;
 public class MainFrame extends Frame {
     private  Button btnAdd = new Button("add");
     private  Button btnSub = new Button("Sub");
-    private  Button btnStop = new Button("Stop");
+//    private  Button btnStop = new Button("Stop");
     private  Button btnExit = new Button("Exit");
     private Label lab = new Label("OuO");
     private int n = 0,labX=185,labY=50;
@@ -42,14 +42,14 @@ public class MainFrame extends Frame {
                 t2.start();
             }
         });
-        btnStop.setBounds(160,200,80,30);
-        this.add(btnStop);
-        btnStop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+//        btnStop.setBounds(160,200,80,30);
+//        this.add(btnStop);
+//        btnStop.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//            }
+//        });
 
 
 
