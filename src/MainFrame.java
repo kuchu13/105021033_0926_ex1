@@ -8,9 +8,10 @@ import java.awt.event.WindowEvent;
 public class MainFrame extends Frame {
     private  Button btnAdd = new Button("add");
     private  Button btnSub = new Button("Sub");
+    private  Button btnStop = new Button("Stop");
     private  Button btnExit = new Button("Exit");
     private Label lab = new Label("OuO");
-    private int n = 0,labX=150,labY=50;
+    private int n = 0,labX=185,labY=50;
     private Timer t1;
     private Timer t2;
 
@@ -21,7 +22,7 @@ public class MainFrame extends Frame {
         this.setBounds(100,120,400,300);
         this.setLayout(null);
 
-        btnAdd.setBounds(100,200,80,30);
+        btnAdd.setBounds(70,200,80,30);
         this.add(btnAdd);
         btnAdd.addActionListener(new ActionListener() {
             @Override
@@ -31,8 +32,7 @@ public class MainFrame extends Frame {
             t1.start();
             }
         });
-
-        btnSub.setBounds(200,200,80,30);
+        btnSub.setBounds(250,200,80,30);
         this.add(btnSub);
         btnSub.addActionListener(new ActionListener() {
             @Override
@@ -42,6 +42,19 @@ public class MainFrame extends Frame {
                 t2.start();
             }
         });
+        btnStop.setBounds(160,200,80,30);
+        this.add(btnStop);
+        btnStop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+
+
+
+
         btnExit.setBounds(150,250,80,30);
         this.add(btnExit);
         btnExit.addActionListener(new ActionListener() {
@@ -51,7 +64,7 @@ public class MainFrame extends Frame {
             }
         });
 
-            lab.setBounds(150,50,80,30);
+            lab.setBounds(185,50,80,30);
         this.add(lab);
 
         t1=new Timer(100, new ActionListener() {
@@ -59,7 +72,7 @@ public class MainFrame extends Frame {
             public void actionPerformed(ActionEvent e) {
                 labX +=5;
                 lab.setLocation(labX,labY);
-                if(labX>=350){
+                if(labX>=370){
                     t1.stop();
                    t2.start();
                 }
@@ -70,7 +83,10 @@ public class MainFrame extends Frame {
             public void actionPerformed(ActionEvent e) {
                 labX -=5;
                 lab.setLocation(labX,labY);
-
+                if(labX<=0) {
+                    t2.stop();
+                    t1.start();
+                }
                 }
 
 
