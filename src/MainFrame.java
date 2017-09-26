@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,8 +7,12 @@ import java.awt.event.WindowEvent;
 
 public class MainFrame extends Frame {
     private  Button btnAdd = new Button("add");
-    private Label lab = new Label("0");
-    private int n=0;
+    private  Button btnSub = new Button("Sub");
+    private  Button btnExit = new Button("Exit");
+    private Label lab = new Label("OuO");
+    private int n = 0,labX=150,labY=50;
+    private Timer t1;
+    private Timer t2;
 
     public MainFrame(){
         initComp();
@@ -16,23 +21,62 @@ public class MainFrame extends Frame {
         this.setBounds(100,120,400,300);
         this.setLayout(null);
 
-        btnAdd.setBounds(150,110,80,30);
+        btnAdd.setBounds(100,200,80,30);
         this.add(btnAdd);
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainFrame.this.setTitle(Integer.toString(++n));
-                lab.setText(Integer.toString(n));
+//                lab.setText(Integer.toString(n));
+            t1.start();
             }
         });
 
+        btnSub.setBounds(200,200,80,30);
+        this.add(btnSub);
+        btnSub.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainFrame.this.setTitle(Integer.toString(--n));
+//                lab.setText(Integer.toString(n));
+                t2.start();
+            }
+        });
+        btnExit.setBounds(150,250,80,30);
+        this.add(btnExit);
+        btnExit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
-
-
-
-
-        lab.setBounds(150,170,80,30);
+            lab.setBounds(150,50,80,30);
         this.add(lab);
+
+        t1=new Timer(100, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                labX +=5;
+                lab.setLocation(labX,labY);
+                if(labX>=350){
+                    t1.stop();
+                   t2.start();
+                }
+            }
+        });
+        t2=new Timer(100, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                labX -=5;
+                lab.setLocation(labX,labY);
+
+                }
+
+
+        });
+
+
 
 
 
