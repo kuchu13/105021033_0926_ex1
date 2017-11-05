@@ -41,7 +41,7 @@ public class MainFrame extends Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainFrame.this.setTitle(Integer.toString(--n));
-//                lab.setText(Integer.toString(n));
+//               lab.setText(Integer.toString(n));
                 t2.start();
             }
         });
