@@ -10,7 +10,7 @@ public class MainFrame extends Frame {
     private  Button btnSub = new Button("Sub");
     private  Button btnStop = new Button("Stop");
     private  Button btnExit = new Button("Exit");
-    private Label lab = new Label("OuO");
+    private Label lab = new Label("0");
     private int n = 0,labX=185,labY=50;
     private Timer t1;
     private Timer t2;
@@ -31,6 +31,7 @@ public class MainFrame extends Frame {
                 MainFrame.this.setTitle(Integer.toString(++n));
 //                lab.setText(Integer.toString(n));
             t1.start();
+
             }
         });
 
@@ -43,6 +44,7 @@ public class MainFrame extends Frame {
                 MainFrame.this.setTitle(Integer.toString(--n));
 //               lab.setText(Integer.toString(n));
                 t2.start();
+
             }
         });
 
@@ -70,7 +72,6 @@ public class MainFrame extends Frame {
 
             lab.setBounds(185,50,80,30);
             this.add(lab);
-//            lab.setText(Integer.toString(lab.getX())+","+Integer.toString(lab.getY()));
 
 
         t1=new Timer(100, new ActionListener() {
@@ -81,7 +82,10 @@ public class MainFrame extends Frame {
                 if(labX>=370){
                     t1.stop();
                    t2.start();
+
                 }
+                lab.setText(Integer.toString(lab.getX())+","+Integer.toString(lab.getY()));
+
             }
         });
         t2=new Timer(100, new ActionListener() {
@@ -92,7 +96,11 @@ public class MainFrame extends Frame {
                 if(labX<=0) {
                     t2.stop();
                     t1.start();
+
+
                 }
+                lab.setText(Integer.toString(lab.getX())+","+Integer.toString(lab.getY()));
+
             }
         });
 
